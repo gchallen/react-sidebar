@@ -1,12 +1,12 @@
-import babel from "rollup-plugin-babel";
-import pkg from "./package.json";
+import babel from "@rollup/plugin-babel";
+import pkg from "./package.json" assert { type: "json" };
 
 const input = "./src/sidebar.js";
 
 const external = id => !id.startsWith("/") && !id.startsWith(".");
 
 const getBabelOptions = () => ({
-  runtimeHelpers: true,
+  babelHelpers: "runtime",
   plugins: ["@babel/transform-runtime"]
 });
 
